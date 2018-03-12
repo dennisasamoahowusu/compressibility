@@ -37,8 +37,11 @@ bytes2 = bytearray(b'\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0
                    b'\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E'
                    b'\x00\x0A\x0B\x0C\x0D\x0E')
 
-print(EceTools.bytecounting(bytes2))
-# print(EceTools.bytecounting(bytes2))
+print(EceTools.byte_stdev(bytes2))
+
+
+
+
 
 # in_file = open(sys.argv[1], 'rb')  # Provide a path to disk or ISO image
 # chunk_size = 512
