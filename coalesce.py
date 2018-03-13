@@ -14,7 +14,7 @@ def coalesce(source_dir, output_dir, file_size):
             data = bytearray(binary_file.read())
             for _byte in data:
                 coalesced_data.append(_byte)
-                if len(coalesced_data) == file_size:
+                if len(coalesced_data) == int(file_size):
                     write_to_file(output_dir, count, coalesced_data)
                     coalesced_data = bytearray()
                     count += 1
