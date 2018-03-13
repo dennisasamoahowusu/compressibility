@@ -1,5 +1,6 @@
 import os
 import shutil
+from optparse import OptionParser
 
 
 def coalesce(source_dir, output_dir, file_size):
@@ -32,7 +33,26 @@ def create_directory(output_dir):
     os.makedirs(output_dir)
 
 
+if __name__ == "__main__":
+    usage = """
+This script coalesces a number of small files.
+
+Usage: python coalesce.py <source-dir> <output-dir> <file-size>
+
+    <source-dir> source dir
+    <output-dir> output dir
+    <file-size> size of each output file
+    """
+    parser = OptionParser(usage=usage)
+    (options, args) = parser.parse_args()
+    if len(args) != 3:
+        print(args)
+        print("Invalid number of args")
+        print("Usage: python coalesce.py <source-dir> <output-dir> <file-size>")
+        exit(1)
+    coalesce(args[0], args[1], args[2])
 
 
-coalesce('/Users/dennis/coding/compressibility/winter-war-en.wikipedia.org-docs',
-         '/Users/dennis/coding/compressibility/coalesce-output', 500000)
+
+# coalesce('/Users/dennis/coding/compressibility/winter-war-en.wikipedia.org-docs',
+#         '/Users/dennis/coding/compressibility/coalesce-output', 500000)
