@@ -4,7 +4,7 @@
 STATUS="Generating data ..."
 echo $STATUS
 
-COALESCE_FILE_SIZE="50000"
+COALESCE_FILE_SIZE="1000000"
 
 WIKIPEDIA_HAR="winter-war-en.wikipedia.org.har"
 WIKIPEDIA_HAR_DOCS="winter-war-en.wikipedia.org-docs"
