@@ -1,8 +1,15 @@
 #!/bin/bash
 
 
-STRING="Generating data ..."
-echo $STRING
+STATUS="Generating data ..."
+echo $STATUS
 
-python2.7 ../datacomp_utils/har2docs.py --stream winter-war-en.wikipedia.org.har winter-war-en.wikipedia.org-docs wikipedia
-python coalesce.py winter-war-en.wikipedia.org-docs/ coalesce-output/ 200000
+COALESCE_FILE_SIZE="50000"
+
+WIKIPEDIA_HAR="winter-war-en.wikipedia.org.har"
+WIKIPEDIA_HAR_DOCS="winter-war-en.wikipedia.org-docs"
+WIKIPEDIA_COALESCE="coalesce-output"
+
+
+python2.7 ../datacomp_utils/har2docs.py --stream $WIKIPEDIA_HAR $WIKIPEDIA_HAR_DOCS  wikipedia
+python coalesce.py $WIKIPEDIA_HAR_DOCS $WIKIPEDIA_COALESCE $COALESCE_FILE_SIZE

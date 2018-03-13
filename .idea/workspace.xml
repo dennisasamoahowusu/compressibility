@@ -2,8 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4fcb7e-a158-4cf9-946c-d8cd2a7b898b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/coalesce-output/1" afterPath="$PROJECT_DIR$/coalesce-output/1" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/10" afterPath="$PROJECT_DIR$/coalesce-output/10" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/11" afterPath="$PROJECT_DIR$/coalesce-output/11" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/12" afterPath="$PROJECT_DIR$/coalesce-output/12" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/13" afterPath="$PROJECT_DIR$/coalesce-output/13" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/14" afterPath="$PROJECT_DIR$/coalesce-output/14" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/15" afterPath="$PROJECT_DIR$/coalesce-output/15" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/16" afterPath="$PROJECT_DIR$/coalesce-output/16" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/17" afterPath="$PROJECT_DIR$/coalesce-output/17" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/18" afterPath="$PROJECT_DIR$/coalesce-output/18" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/19" afterPath="$PROJECT_DIR$/coalesce-output/19" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/2" afterPath="$PROJECT_DIR$/coalesce-output/2" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/20" afterPath="$PROJECT_DIR$/coalesce-output/20" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/3" afterPath="$PROJECT_DIR$/coalesce-output/3" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/4" afterPath="$PROJECT_DIR$/coalesce-output/4" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/5" afterPath="$PROJECT_DIR$/coalesce-output/5" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/6" afterPath="$PROJECT_DIR$/coalesce-output/6" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/7" afterPath="$PROJECT_DIR$/coalesce-output/7" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/8" afterPath="$PROJECT_DIR$/coalesce-output/8" />
+      <change beforePath="$PROJECT_DIR$/coalesce-output/9" afterPath="$PROJECT_DIR$/coalesce-output/9" />
+      <change beforePath="$PROJECT_DIR$/generate_data.sh" afterPath="$PROJECT_DIR$/generate_data.sh" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_application_x-www-form-urlencoded_2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_application_x-www-form-urlencoded_3" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_gif_1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_18" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_19" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_20" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_21" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_22" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_23" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_24" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_25" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_26" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_27" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_28" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_29" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_30" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_31" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_32" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_33" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_34" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_jpeg_35" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_23" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_24" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_25" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_26" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_27" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_28" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_29" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_30" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_31" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_32" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_33" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_34" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_35" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_36" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_37" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_38" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_39" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_40" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_41" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_42" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_43" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_44" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_png_45" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_image_svg+xml_1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_css_3" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_css_4" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_css_5" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_html_1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_javascript_2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/winter-war-en.wikipedia.org-docs/wikipedia_text_javascript_3" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +109,8 @@
       <file leaf-file-name="generate_data.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generate_data.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="73" lean-forward="false" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
+            <state relative-caret-position="210">
+              <caret line="14" column="78" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -259,8 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generate_data.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="73" lean-forward="false" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
+        <state relative-caret-position="210">
+          <caret line="14" column="78" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
           <folding />
         </state>
       </provider>
