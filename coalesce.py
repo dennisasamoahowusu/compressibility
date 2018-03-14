@@ -28,8 +28,8 @@ def write_to_file(output_dir, count, coalesced_data):
 
 
 def create_directory(output_dir):
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
+    # if os.path.exists(output_dir):
+    #     shutil.rmtree(output_dir)
     os.makedirs(output_dir)
 
 
