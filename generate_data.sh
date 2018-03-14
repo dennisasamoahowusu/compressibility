@@ -5,7 +5,7 @@ STATUS="Generating data ..."
 echo $STATUS
 
 #size in bytes
-COALESCE_FILE_SIZE="5000000"
+COALESCE_FILE_SIZE="500000"
 
 #how many rounds of random chunkcs
 RANDOM_CHUNKS_ROUNDS=5
@@ -19,6 +19,9 @@ WIKIPEDIA_COALESCE="wikipedia-coalesce-output"
 WIKIPEDIA_RANDOM_CHUNKS="wikipedia-random-chunks"
 
 rm -rf $WIKIPEDIA_RANDOM_CHUNKS
+rm -rf $WIKIPEDIA_COALESCE
+rm -rf $WIKEPEDIA_HAR_DOCS
+
 mkdir $WIKIPEDIA_RANDOM_CHUNKS
 
 python2.7 ../datacomp_utils/har2docs.py --stream $WIKIPEDIA_HAR $WIKIPEDIA_HAR_DOCS  wikipedia
