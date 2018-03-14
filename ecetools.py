@@ -7,10 +7,9 @@ import shutil
 class EceTools:
 
     @staticmethod
-    def ecetool(ece_type, source_dir):
+    def ecetool(ece_type, source_dir, output_filename):
         files = [os.path.join(source_dir, f) for f in os.listdir(source_dir)
                  if os.path.isfile(os.path.join(source_dir, f))]
-        output_filename = ece_type + "_ece_output"
         if os.path.exists(output_filename):
             os.remove(output_filename)
         output_file = open(output_filename, "a+")
@@ -74,17 +73,18 @@ if __name__ == "__main__":
     usage = """
     This script produces a file with ece-outputs for files in source-dir
 
-    Usage: python ecetools.py <ece-type><source-dir> <output-dir> 
+    Usage: python ecetools.py <ece-type><source-dir> <output-dir><output-filename>
 
         <ece-type> ece type: bc (for bytecounting), bs (for byte stdev) 
         <source-dir> source dir
+        <output-filename> output filename
         """
     parser = OptionParser(usage=usage)
     (options, args) = parser.parse_args()
-    if len(args) != 2:
+    if len(args) != 3:
         print(args)
         print("Invalid number of args")
-        print("Usage: python ecetools.py <ece-type><source-dir> ")
+        print("Usage: python ecetools.py <ece-type><source-dir><output-filename> ")
         exit(1)
-    EceTools.ecetool(args[0], args[1])
+    EceTools.ecetool(args[0], args[1], args[2])
 

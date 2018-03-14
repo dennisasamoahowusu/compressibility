@@ -39,7 +39,7 @@ do
 done
 
 # bytecounting
-python ecetools.py bc $WIKIPEDIA_RANDOM_CHUNKS
+python ecetools.py bc $WIKIPEDIA_RANDOM_CHUNKS wiki_bc_ece_output
 
 #byte standard deviation 
-python ecetools.py bs $WIKIPEDIA_RANDOM_CHUNKS
+python ecetools.py bs $WIKIPEDIA_RANDOM_CHUNKS wiki_bs_ece_output
