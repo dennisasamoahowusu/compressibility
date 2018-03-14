@@ -38,3 +38,8 @@ do
     done 
 done
 
+# bytecounting
+python ecetools.py bc $WIKIPEDIA_RANDOM_CHUNKS
+
+#byte standard deviation 
+python ecetools.py bs $WIKIPEDIA_RANDOM_CHUNKS
