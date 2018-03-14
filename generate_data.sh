@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #values are wiki, fb, yt, rn, ze
-DATA_TYPE="wiki"
+DATA_TYPE="yt"
 
 STATUS="Generating data ..."
 echo $STATUS
@@ -17,12 +17,17 @@ CHUNK_SIZE=50
 
 
 ################################# Setting files and folders ####################################################
+HAR_DIRECTORY="/home/dennis/coding/compressibility_data/compressibility_data"
 
 WIKIPEDIA_OUTPUT="wiki_output"
-WIKIPEDIA_HAR="winter-war-en.wikipedia.org.har"
-WIKIPEDIA_HAR_DOCS="$WIKIPEDIA_OUTPUT/har-docs"
-WIKIPEDIA_COALESCE="$WIKIPEDIA_OUTPUT/coalesce"
-WIKIPEDIA_RANDOM_CHUNKS="$WIKIPEDIA_OUTPUT/random-chunks"
+WIKIPEDIA_HAR="$HAR_DIRECTORY/wikipedia.har"
+
+FACEBOOK_OUTPUT="fb_output"
+FACEBOOK_HAR="$HAR_DIRECTORY/facebook.har"
+
+YOUTUBE_OUTPUT="yt_output"
+YOUTUBE_HAR="$HAR_DIRECTORY/youtube.har"
+
 
 # set output and har based on data type
 if [ $DATA_TYPE == 'wiki' ]
@@ -31,12 +36,12 @@ then
   HAR=$WIKIPEDIA_HAR
 elif [ $DATA_TYPE == 'fb' ]
 then
-  echo "Not doing facebook now"
-  exit 555
+  OUTPUT=$FACEBOOK_OUTPUT
+  HAR=$FACEBOOK_HAR
 elif [ $DATA_TYPE == 'yt' ]
 then
-  echo "Not doing youtube now"
-  exit 555
+  OUTPUT=$YOUTUBE_OUTPUT
+  HAR=$YOUTUBE_HAR
 elif [ $DATA_TYPE == 'rn' ]
 then
   echo "Not doing random now"
