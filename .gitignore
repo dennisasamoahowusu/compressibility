@@ -5,3 +5,6 @@ coalesce-output/
 winter-war-en.wikipedia.org-docs/
 __pycache__/
 __pycache__
+rchunk.log
+wikipedia-coalesce-output/
+wikipedia-random-chunks/
