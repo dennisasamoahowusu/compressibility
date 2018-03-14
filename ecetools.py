@@ -23,7 +23,8 @@ class EceTools:
                     ece_output = EceTools.byte_stdev(data)
                 else:
                     raise ValueError("bad ece_type")
-                output_file.write("%s %d \n" % (f, ece_output))
+                ece_output_str = "{0:.20f}".format(ece_output)
+                output_file.write("%s %s \n" % (f, ece_output_str))
         output_file.close()
 
     @staticmethod
@@ -64,7 +65,9 @@ class EceTools:
             x = i/total_frequency
             _sum += (x - 1/n)**2
 
-        return math.sqrt(factor * _sum)
+        result = factor * _sum
+
+        return math.sqrt(result)
 
 
 if __name__ == "__main__":
