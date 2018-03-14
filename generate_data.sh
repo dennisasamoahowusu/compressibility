@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#values are wiki, fb, yt, rn, ze
+DATA_TYPE=""
 
 STATUS="Generating data ..."
 echo $STATUS
