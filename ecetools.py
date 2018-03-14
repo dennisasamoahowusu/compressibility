@@ -10,7 +10,10 @@ class EceTools:
     def ecetool(ece_type, source_dir):
         files = [os.path.join(source_dir, f) for f in os.listdir(source_dir)
                  if os.path.isfile(os.path.join(source_dir, f))]
-        output_file = open(ece_type + "_ece_output", "a+")
+        output_filename = ece_type + "_ece_output"
+        if os.path.exists(output_filename):
+            os.remove(output_filename)
+        output_file = open(output_filename, "a+")
         for f in files:
             with open(f, "rb") as binary_file:
                 data = bytearray(binary_file.read())
