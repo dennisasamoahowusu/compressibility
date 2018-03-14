@@ -1,7 +1,13 @@
 #!/bin/bash
 
 #values are wiki, fb, yt, rn, ze
-DATA_TYPE="yt"
+DATA_TYPE=$1
+
+if [ "$DATA_TYPE" != 'wiki' ] && [ "$DATA_TYPE" != 'fb' ] && [ "$DATA_TYPE" != 'yt' ] && [ "$DATA_TYPE" != 'rn' ] && [ "$DATA_TYPE" != 'ze' ]
+then
+  echo "Bad data type: use ./generate_data.sh <data-type>"
+  exit 777
+fi 
 
 STATUS="Generating data ..."
 echo $STATUS
