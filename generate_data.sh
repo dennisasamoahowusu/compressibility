@@ -64,7 +64,7 @@ echo "Creating $OUTPUT dir ....."
 mkdir $OUTPUT
 
 echo "Converting har to docs ....."
-python2.7 ../datacomp_utils/har2docs.py --stream $WHAR $HAR_DOCS  $DATA_TYPE
+python2.7 ../datacomp_utils/har2docs.py --stream $HAR $HAR_DOCS  $DATA_TYPE
 
 echo "Coalescing docs to larger files ......"
 python coalesce.py $HAR_DOCS $COALESCE $COALESCE_FILE_SIZE
