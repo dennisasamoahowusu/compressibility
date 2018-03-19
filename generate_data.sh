@@ -3,7 +3,14 @@
 #values are wiki, fb, yt, rn, ze
 DATA_TYPE=$1
 
-if [ "$DATA_TYPE" != 'wiki' ] && [ "$DATA_TYPE" != 'fb' ] && [ "$DATA_TYPE" != 'yt' ] && [ "$DATA_TYPE" != 'rn' ] && [ "$DATA_TYPE" != 'ze' ]
+
+if [ -z "$DATA_TYPE" ]  
+then
+  echo "Bad data type: use ./generate_data.sh <data-type>"
+  exit 	777
+fi 
+
+if [ "$DATA_TYPE" != 'wiki' ] && [ "$DATA_TYPE" != 'fb' ] && [ "$DATA_TYPE" != 'yt' ] && [ "$DATA_TYPE" != 'rn' ] && [ "$DATA_TYPE" != 'ze' ] 
 then
   echo "Bad data type: use ./generate_data.sh <data-type>"
   exit 777
@@ -34,6 +41,10 @@ FACEBOOK_HAR="$HAR_DIRECTORY/facebook.har"
 YOUTUBE_OUTPUT="yt_output"
 YOUTUBE_HAR="$HAR_DIRECTORY/youtube.har"
 
+ZEROS_OUTPUT="ze_output"
+
+RANDOM_OUTPUT="rn_output"
+
 
 # set output and har based on data type
 if [ $DATA_TYPE == 'wiki' ]
@@ -50,12 +61,10 @@ then
   HAR=$YOUTUBE_HAR
 elif [ $DATA_TYPE == 'rn' ]
 then
-  echo "Not doing random now"
-  exit 555
+  OUTPUT=$RANDOM_OUTPUT
 elif [ $DATA_TYPE == 'ze' ]
 then
-  echo "Not doing zero now"
-  exit 555
+  OUTPUT=$ZEROS_OUTPUT
 else
   exit 444
 fi
@@ -74,16 +83,33 @@ rm -rf $OUTPUT
 echo "Creating $OUTPUT dir ....."
 mkdir $OUTPUT
 
-echo "Converting har to docs ....."
-python2.7 ../datacomp_utils/har2docs.py --stream $HAR $HAR_DOCS  $DATA_TYPE
 
-echo "Coalescing docs to larger files ......"
-python coalesce.py $HAR_DOCS $COALESCE $COALESCE_FILE_SIZE
+if [ "$DATA_TYPE" != 'rn' ] && [ "$DATA_TYPE" != 'ze' ] 
+then
+  echo "Converting har to docs ....."
+  python2.7 ../datacomp_utils/har2docs.py --stream $HAR $HAR_DOCS $DATA_TYPE
+
+  echo "Coalescing docs to larger files ......"
+  python coalesce.py $HAR_DOCS $COALESCE $COALESCE_FILE_SIZE
+fi 
+
+
+if [ $DATA_TYPE == 'rn' ]
+then
+  FILES=$HAR_DIRECTORY/random/*
+elif [ $DATA_TYPE == 'ze' ]
+then
+  FILES=$HAR_DIRECTORY/zeros/*
+else
+  FILES=$COALESCE/*
+fi
+
+
+
 
 echo "Creating random chunks from larger files"
 mkdir $RANDOM_CHUNKS
 COUNTER=1
-FILES=$COALESCE/*
 for f in $FILES
 do
   for k in `seq 1 $RANDOM_CHUNKS_ROUNDS`;
