@@ -2,6 +2,8 @@ import math
 from optparse import OptionParser
 import os
 import gzip
+import lz4.frame
+import lzma
 
 
 class EceTools:
@@ -24,12 +26,29 @@ class EceTools:
                     ece_output = EceTools.gzip(data, 1)
                 elif ece_type == "gz6":
                     ece_output = EceTools.gzip(data, 6)
+                elif ece_type == "lz4":
+                    ece_output = EceTools.lz4(data)
+                elif ece_type == "xz":
+                    ece_output = EceTools.xz(data)
                 else:
                     raise ValueError("bad ece_type")
                 ece_output_str = "{0:.20f}".format(ece_output)
                 output_file.write("%s %s \n" % (f, ece_output_str))
         output_file.close()
 
+    @staticmethod
+    def xz(_input):
+        # xz is the default format
+        data_out = lzma.compress(_input)
+        return len(data_out)
+
+    # return size in bytes
+    @staticmethod
+    def lz4(_input):
+        compressed = lz4.frame.compress(_input)
+        return len(compressed)
+
+    # returns size in bytes
     @staticmethod
     def gzip(_input: bytearray, level):
         filename = 'temp-gz-output.gz'
@@ -40,7 +59,6 @@ class EceTools:
             output.close()
         size = os.stat(filename).st_size
         return size
-
 
     @staticmethod
     def bytecounting(_input: bytearray):
@@ -91,7 +109,7 @@ if __name__ == "__main__":
 
     Usage: python ecetools.py <ece-type><source-dir> <output-dir><output-filename>
 
-        <ece-type> ece type: bc (for bytecounting), bs (for byte stdev) , gz1, gz6
+        <ece-type> ece type: bc (for bytecounting), bs (for byte stdev) , gz1, gz6, lz4, xz
         <source-dir> source dir
         <output-filename> output filename
         """

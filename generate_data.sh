@@ -128,3 +128,12 @@ python ecetools.py bs $RANDOM_CHUNKS $OUTPUT/bs_ece_output
 
 echo "GZ 1 ......"
 python ecetools.py gz1 $RANDOM_CHUNKS $OUTPUT/gz1_ece_output
+
+echo "GZ 6 ......"
+python ecetools.py gz6 $RANDOM_CHUNKS $OUTPUT/gz6_ece_output
+
+echo "LZ 4 ......"
+python ecetools.py lz4 $RANDOM_CHUNKS $OUTPUT/lz4_ece_output
+
+echo "XZ ......"
+python ecetools.py xz $RANDOM_CHUNKS $OUTPUT/xz_ece_output
