@@ -119,12 +119,12 @@ do
     done 
 done
 
-BC_OUTPUT = $OUTPUT/bc_ece_output
-BS_OUTPUT = $OUTPUT/bs_ece_output
-GZ1_OUTPUT = $OUTPUT/gz1_ece_output
-GZ6_OUTPUT = $OUTPUT/gz6_ece_output
-LZ4_OUTPUT = $OUTPUT/lz4_ece_output
-XZ_OUTPUT = $OUTPUT/xz_ece_output
+BC_OUTPUT=$OUTPUT/bc_ece_output
+BS_OUTPUT=$OUTPUT/bs_ece_output
+GZ1_OUTPUT=$OUTPUT/gz1_ece_output
+GZ6_OUTPUT=$OUTPUT/gz6_ece_output
+LZ4_OUTPUT=$OUTPUT/lz4_ece_output
+XZ_OUTPUT=$OUTPUT/xz_ece_output
 
 echo "Bytecounting ......"
 python ecetools.py bc $RANDOM_CHUNKS $BC_OUTPUT
@@ -145,9 +145,9 @@ echo "XZ ......"
 python ecetools.py xz $RANDOM_CHUNKS $XZ_OUTPUT
 
 echo "Normalizing Output Files ..."
-python normalize $BC_OUTPUT $BC_OUTPUT.norm
-python normalize $BS_OUTPUT $BS_OUTPUT.norm
-python normalize $GZ1_OUTPUT $GZ1_OUTPUT.norm
-python normalize $GZ6_OUTPUT $GZ6_OUTPUT.norm
-python normalize $LZ4_OUTPUT $LZ4_OUTPUT.norm
-python normalize $XZ_OUTPUT $XZ_OUTPUT.norm
+python normalize.py $BC_OUTPUT $BC_OUTPUT.norm
+python normalize.py $BS_OUTPUT $BS_OUTPUT.norm
+python normalize.py $GZ1_OUTPUT $GZ1_OUTPUT.norm
+python normalize.py $GZ6_OUTPUT $GZ6_OUTPUT.norm
+python normalize.py $LZ4_OUTPUT $LZ4_OUTPUT.norm
+python normalize.py $XZ_OUTPUT $XZ_OUTPUT.norm
