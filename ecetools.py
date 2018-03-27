@@ -33,7 +33,8 @@ class EceTools:
                 else:
                     raise ValueError("bad ece_type")
                 ece_output_str = "{0:.20f}".format(ece_output)
-                output_file.write("%s %s \n" % (f, ece_output_str))
+                # output_file.write("%s %s \n" % (f, ece_output_str))
+                output_file.write("%s\n" % ece_output_str)
         output_file.close()
 
     @staticmethod
