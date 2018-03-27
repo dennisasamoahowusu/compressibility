@@ -119,10 +119,12 @@ do
     done 
 done
 
-# bytecounting
+
 echo "Bytecounting ......"
 python ecetools.py bc $RANDOM_CHUNKS $OUTPUT/bc_ece_output
 
 echo "Byte stdev ......"
-#byte standard deviation 
 python ecetools.py bs $RANDOM_CHUNKS $OUTPUT/bs_ece_output
+
+echo "GZ 1 ......"
+python ecetools.py gz1 $RANDOM_CHUNKS $OUTPUT/gz1_ece_output

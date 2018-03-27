@@ -1,7 +1,7 @@
 import math
 from optparse import OptionParser
 import os
-import shutil
+import gzip
 
 
 class EceTools:
@@ -20,11 +20,27 @@ class EceTools:
                     ece_output = EceTools.bytecounting(data)
                 elif ece_type == "bs":
                     ece_output = EceTools.byte_stdev(data)
+                elif ece_type == "gz1":
+                    ece_output = EceTools.gzip(data, 1)
+                elif ece_type == "gz6":
+                    ece_output = EceTools.gzip(data, 6)
                 else:
                     raise ValueError("bad ece_type")
                 ece_output_str = "{0:.20f}".format(ece_output)
                 output_file.write("%s %s \n" % (f, ece_output_str))
         output_file.close()
+
+    @staticmethod
+    def gzip(_input: bytearray, level):
+        filename = 'temp-gz-output.gz'
+        output = gzip.open(filename, 'wb', compresslevel=level)
+        try:
+            output.write(_input)
+        finally:
+            output.close()
+        size = os.stat(filename).st_size
+        return size
+
 
     @staticmethod
     def bytecounting(_input: bytearray):
@@ -75,7 +91,7 @@ if __name__ == "__main__":
 
     Usage: python ecetools.py <ece-type><source-dir> <output-dir><output-filename>
 
-        <ece-type> ece type: bc (for bytecounting), bs (for byte stdev) 
+        <ece-type> ece type: bc (for bytecounting), bs (for byte stdev) , gz1, gz6
         <source-dir> source dir
         <output-filename> output filename
         """
