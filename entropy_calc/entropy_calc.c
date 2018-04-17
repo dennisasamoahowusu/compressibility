@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <limits.h> 
 
-int compare_naturally1(const void* a_ptr, const void* b_ptr) {
+/*int compare_naturally1(const void* a_ptr, const void* b_ptr) {
     const char * a = *(const char**)a_ptr;
     const char * b = *(const char**)b_ptr;
 
@@ -30,6 +30,7 @@ int compare_naturally1(const void* a_ptr, const void* b_ptr) {
 //{
 //    return strcmp (*(const char **) a, *(const char **) b);
 //}
+*/
 
 int32_t avg_mean_entropy(const char* filename){
   struct stat file_stat;
@@ -54,6 +55,7 @@ int32_t avg_mean_entropy(const char* filename){
   return avg_mean(input_data, file_size);
 }
 
+/*
 int n_files_in_folder(const char* dirpath){
   DIR *dp;
   struct dirent *ep;
@@ -75,6 +77,9 @@ int n_files_in_folder(const char* dirpath){
   return count;
 }
 
+*/
+
+/*
 void files_in_folder(const char* dirpath, const char**files, int count){
   DIR *dp;
   struct dirent *ep;
@@ -106,15 +111,12 @@ void files_in_folder(const char* dirpath, const char**files, int count){
   //qsort(files, count, sizeof(const char *), compare_naturally1);
 }
 
+*/
+
 int main(int argc, char* argv[]) 
 {
   const char* source_dir = argv[1];
   const char* output_file = argv[2];
-
-  //int32_t avg_mean = avg_mean_entropy(argv[1]);
-  //int n_files = n_files_in_folder(source_dir);
-  //const char* files[n_files];
-  //files_in_folder(source_dir, files, n_files);
 
   FILE *outF;
   outF = fopen(output_file, "a");
@@ -122,40 +124,29 @@ int main(int argc, char* argv[])
   DIR *dp;
   struct dirent *ep;
 
+  size_t arglen = strlen(argv[1]);
 
-size_t arglen = strlen(argv[1]);
-
-
-
-  //char buf[PATH_MAX + 1]; 
-  //char* buf;
   dp = opendir (source_dir);
-  if (dp != NULL)
-    {
+  if (dp != NULL){
       while ((ep = readdir (dp))){
         char* name = ep->d_name;
         if (strcmp(name, ".") != 0 && strcmp(name, "..") != 0){
+          char *fullpath = malloc(arglen + strlen(ep->d_name) + 2);
+          if (fullpath == NULL) { 
+            printf("Full path error"); 
+            /* deal with error and exit */ 
+          } else {
+            sprintf(fullpath, "%s/%s", source_dir, ep->d_name);
+            /* use fullpath */
+            printf("%s\n", fullpath);
 
-char *fullpath = malloc(arglen + strlen(ep->d_name) + 2);
-if (fullpath == NULL) { printf("Full path error"); /* deal with error and exit */ } else {
-sprintf(fullpath, "%s/%s", source_dir, ep->d_name);
-/* use fullpath */
-printf("%s\n", fullpath);
+            int32_t avg_mean = avg_mean_entropy(fullpath);
+            printf("%i\n", avg_mean);
 
-int32_t avg_mean = avg_mean_entropy(fullpath);
-printf("%i\n", avg_mean);
+            fprintf(outF, "%s %i\n", fullpath, avg_mean);
 
-free(fullpath);
-}
-
-
-          //char* res = realpath(ep->d_name, buf);
-          //char *res = realpath(ep->d_name, NULL);
-          //printf("%s\n", buf);
-          //printf("%s\n", name);
-          //int32_t avg_mean = avg_mean_entropy(res);
-          //printf("%i\n", avg_mean);
-          //fprintf(outF, "%s | %i\n", name, avg_mean);
+            free(fullpath);
+          }
         }
       }
       (void) closedir (dp);
@@ -165,14 +156,6 @@ free(fullpath);
 
 
   fclose(outF);
-
-  //int x;
-  //for (x=0; x<n_files; x++){
-    //int32_t avg_mean = avg_mean_entropy(files[x]);
-    //printf("%s\n", files[x]);
-    //fprintf(outF, "%s | %i\n", files[x], 5);
-  //}
-  //fclose(outF);
 
   return 0;
 }
