@@ -10,7 +10,7 @@ class EceTools:
 
     @staticmethod
     def ecetool(ece_type, source_dir, output_filename):
-        files = [os.path.join(source_dir, f) for f in os.listdir(source_dir)
+        files = [os.path.join(source_dir, f) for f in sorted(os.listdir(source_dir))
                  if os.path.isfile(os.path.join(source_dir, f))]
         if os.path.exists(output_filename):
             os.remove(output_filename)
