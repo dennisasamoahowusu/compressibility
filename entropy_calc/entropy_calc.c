@@ -115,16 +115,16 @@ void files_in_folder(const char* dirpath, const char**files, int count){
 
 int main(int argc, char* argv[]) 
 {
-  const char* source_dir = argv[1];
-  const char* output_file = argv[2];
+  const char* source_dir = argv[2];
+  const char* output_file = argv[3];
+  size_t arglen = strlen(argv[2]);
+  const char* type = argv[1];
 
   FILE *outF;
   outF = fopen(output_file, "a");
 
   DIR *dp;
   struct dirent *ep;
-
-  size_t arglen = strlen(argv[1]);
 
   dp = opendir (source_dir);
   if (dp != NULL){
@@ -138,13 +138,16 @@ int main(int argc, char* argv[])
           } else {
             sprintf(fullpath, "%s/%s", source_dir, ep->d_name);
             /* use fullpath */
-            printf("%s\n", fullpath);
+            //printf("%s\n", fullpath);
 
-            int32_t avg_mean = avg_mean_entropy(fullpath);
-            printf("%i\n", avg_mean);
-
-            fprintf(outF, "%s %i\n", fullpath, avg_mean);
-
+            if (strcmp(type,"avg_mean") == 0){
+              int32_t avg_mean = avg_mean_entropy(fullpath);
+              //printf("%i\n", avg_mean);
+              fprintf(outF, "%s %i\n", fullpath, avg_mean);
+            } else {
+              printf("\nType argument not provided or wrong type\n");
+              return 1;
+            }
             free(fullpath);
           }
         }
