@@ -125,6 +125,9 @@ GZ1_OUTPUT=$OUTPUT/gz1_ece_output
 GZ6_OUTPUT=$OUTPUT/gz6_ece_output
 LZ4_OUTPUT=$OUTPUT/lz4_ece_output
 XZ_OUTPUT=$OUTPUT/xz_ece_output
+AVG_MEAN_OUTPUT_RAW=$OUTPUT/avg_mean_output_raw
+SHANNON_OUTPUT_RAW=$OUTPUT/shannon_output_raw
+HEURISTIC_OUTPUT_RAW=$OUTPUT/heuristic_output_raw
 
 echo "Bytecounting ......"
 python ecetools.py bc $RANDOM_CHUNKS $BC_OUTPUT
@@ -144,10 +147,19 @@ python ecetools.py lz4 $RANDOM_CHUNKS $LZ4_OUTPUT
 echo "XZ ......"
 python ecetools.py xz $RANDOM_CHUNKS $XZ_OUTPUT
 
-echo "Normalizing Output Files ..."
-python normalize.py $BC_OUTPUT $BC_OUTPUT.norm
-python normalize.py $BS_OUTPUT $BS_OUTPUT.norm
-python normalize.py $GZ1_OUTPUT $GZ1_OUTPUT.norm
-python normalize.py $GZ6_OUTPUT $GZ6_OUTPUT.norm
-python normalize.py $LZ4_OUTPUT $LZ4_OUTPUT.norm
-python normalize.py $XZ_OUTPUT $XZ_OUTPUT.norm
+echo "AVG MEAN ....."
+entropy_calc/entropy_calc avg_mean $RANDOM_CHUNKS $AVG_MEAN_OUTPUT_RAW
+
+echo "SHANNON ...."
+entropy_calc/entropy_calc shannon $RANDOM_CHUNKS $SHANNON_OUTPUT_RAW
+
+echo "HEURISTIC ..."
+entropy_calc/entropy_calc heuristic $RANDOM_CHUNKS $HEURISTIC_OUTPUT_RAW
+
+#echo "Normalizing Output Files ..."
+#python normalize.py $BC_OUTPUT $BC_OUTPUT.norm
+#python normalize.py $BS_OUTPUT $BS_OUTPUT.norm
+#python normalize.py $GZ1_OUTPUT $GZ1_OUTPUT.norm
+#python normalize.py $GZ6_OUTPUT $GZ6_OUTPUT.norm
+#python normalize.py $LZ4_OUTPUT $LZ4_OUTPUT.norm
+#python normalize.py $XZ_OUTPUT $XZ_OUTPUT.norm
