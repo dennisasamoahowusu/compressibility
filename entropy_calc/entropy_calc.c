@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "avg_mean.h"
 #include "shannon_f.h"
+#include "heuristic.h"
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <fcntl.h>
@@ -77,6 +78,29 @@ double shannon_entropy(const char* filename){
   input_data = (uint8_t *) mmap (0, file_size, prot, map_flags, fd, 0);
 
   return shannon_f(input_data, file_size);
+}
+
+enum compress_advice heuristic_wrapper(const char* filename){
+  struct stat file_stat;
+  uint64_t file_size;
+  uint8_t *input_data;
+  int64_t fd;
+
+  fd = open(filename, O_RDONLY);
+  if (fd == -1) {
+    printf("Can't open file: %s\n", filename);
+    return 1;
+  }
+
+  /* Get the size of the file. */
+  fstat (fd, &file_stat);
+  file_size = file_stat.st_size;
+
+  int prot = PROT_READ|PROT_NONE;
+  int map_flags =  MAP_SHARED;
+  input_data = (uint8_t *) mmap (0, file_size, prot, map_flags, fd, 0);
+
+  return heuristic(input_data, file_size);
 }
 
 /*
@@ -171,6 +195,32 @@ int main(int argc, char* argv[])
             } else if (strcmp(type,"shannon") == 0){
               double shannon = shannon_entropy(fullpath);
               fprintf(outF, "%s %f\n", fullpath, shannon);
+            } else if (strcmp(type,"heuristic") == 0) {
+              enum compress_advice advice = heuristic_wrapper(fullpath);
+              char *advice_str;
+			switch (advice) {
+			case COMPRESS_NONE:
+				advice_str = "COMPRESS_NONE";
+				printf("Not Compress\n");
+				break;;
+			case COMPRESS_COST_UNKNOWN:
+				advice_str = "COST_UNKNOWN";
+				printf("Unknown\n");
+				break;;
+			case COMPRESS_COST_EASY:
+				advice_str = "COST_EASY";
+				printf("Compress cost: EASY\n");
+				break;;
+			case COMPRESS_COST_MEDIUM:
+				advice_str = "COST_MEDIUM";
+				printf("Compress cost: MEDIUM\n");
+				break;;
+			case COMPRESS_COST_HARD:
+				advice_str = "COST_HARD";
+				printf("Compress cost: HARD\n");
+				break;;
+			}
+              fprintf(outF, "%s %s\n", fullpath, advice_str);
             } else {
               printf("\nType argument not provided or wrong type\n");
               return 1;
