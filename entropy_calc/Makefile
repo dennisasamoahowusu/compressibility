@@ -8,7 +8,10 @@ entropy_calc.o: entropy_calc.c
 avg_mean.o: avg_mean.c
 	$(CC) $(CFLAGS) -c $? -o $@
 
-entropy_calc: entropy_calc.o avg_mean.o
+shannon_f.o: shannon_f.c
+	$(CC) $(CFLAGS) -c $? -o $@
+
+entropy_calc: entropy_calc.o avg_mean.o shannon_f.o
 	$(CC) $(CFLAGS) -o $@ $? -lm
 
 

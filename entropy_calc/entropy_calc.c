@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "avg_mean.h"
+#include "shannon_f.h"
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <fcntl.h>
@@ -53,6 +54,29 @@ int32_t avg_mean_entropy(const char* filename){
   input_data = (uint8_t *) mmap (0, file_size, prot, map_flags, fd, 0);
 
   return avg_mean(input_data, file_size);
+}
+
+double shannon_entropy(const char* filename){
+  struct stat file_stat;
+  uint64_t file_size;
+  uint8_t *input_data;
+  int64_t fd;
+
+  fd = open(filename, O_RDONLY);
+  if (fd == -1) {
+    printf("Can't open file: %s\n", filename);
+    return 1;
+  }
+
+  /* Get the size of the file. */
+  fstat (fd, &file_stat);
+  file_size = file_stat.st_size;
+
+  int prot = PROT_READ|PROT_NONE;
+  int map_flags =  MAP_SHARED;
+  input_data = (uint8_t *) mmap (0, file_size, prot, map_flags, fd, 0);
+
+  return shannon_f(input_data, file_size);
 }
 
 /*
@@ -144,6 +168,9 @@ int main(int argc, char* argv[])
               int32_t avg_mean = avg_mean_entropy(fullpath);
               //printf("%i\n", avg_mean);
               fprintf(outF, "%s %i\n", fullpath, avg_mean);
+            } else if (strcmp(type,"shannon") == 0){
+              double shannon = shannon_entropy(fullpath);
+              fprintf(outF, "%s %f\n", fullpath, shannon);
             } else {
               printf("\nType argument not provided or wrong type\n");
               return 1;
