@@ -1,5 +1,6 @@
 # import sys
 from ecetools import EceTools
+import normalize
 
 
 bytes1 = bytearray(b'\x00\x0F\x0C\x0F\x0D\x0F\x00\x0F\x0C\x0F\x0D\x0F\x00\x0F\x0C\x0F\x0D\x0F\x00\x0F\x0C\x0F\x0D\x0F'
@@ -37,10 +38,12 @@ bytes2 = bytearray(b'\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0
                    b'\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E\x00\x0A\x0B\x0C\x0D\x0E'
                    b'\x00\x0A\x0B\x0C\x0D\x0E')
 
-print(len(bytes2))
-print(EceTools.lz4(bytes2))
-print(EceTools.gzip(bytes2, 1))
-print(EceTools.xz(bytes2))
+normalize.normalize("output_test_file", "output_test_file.norm")
+
+# print(len(bytes2))
+# print(EceTools.lz4(bytes2))
+# print(EceTools.gzip(bytes2, 1))
+# print(EceTools.xz(bytes2))
 
 
 # in_file = open(sys.argv[1], 'rb')  # Provide a path to disk or ISO image

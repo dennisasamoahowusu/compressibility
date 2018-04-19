@@ -6,15 +6,20 @@ from optparse import OptionParser
 def normalize(input_file, output_file):
     with open(input_file) as f:
         data = f.read().splitlines()
-        data = [float(i) for i in data]
-        data = np.asarray(data)
-        data = data.reshape(-1, 1)
+        data.sort()
+
+        data_values = []
+        for i in data:
+            data_values.append(float(i.split()[1]))
+
+        data_values = np.asarray(data_values)
+        data_values = data_values.reshape(-1, 1)
 
         scaler = MinMaxScaler()
-        scaler.fit(data)
-        data = scaler.transform(data)
+        scaler.fit(data_values)
+        data_values = scaler.transform(data_values)
         output_file = open(output_file, "a+")
-        for i in data:
+        for i in data_values:
             output_file.write("%f\n" % i)
         output_file.close()
 
