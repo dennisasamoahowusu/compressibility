@@ -156,10 +156,14 @@ entropy_calc/entropy_calc shannon $RANDOM_CHUNKS $SHANNON_OUTPUT_RAW
 echo "HEURISTIC ..."
 entropy_calc/entropy_calc heuristic $RANDOM_CHUNKS $HEURISTIC_OUTPUT_RAW
 
-#echo "Normalizing Output Files ..."
-#python normalize.py $BC_OUTPUT $BC_OUTPUT.norm
-#python normalize.py $BS_OUTPUT $BS_OUTPUT.norm
-#python normalize.py $GZ1_OUTPUT $GZ1_OUTPUT.norm
-#python normalize.py $GZ6_OUTPUT $GZ6_OUTPUT.norm
-#python normalize.py $LZ4_OUTPUT $LZ4_OUTPUT.norm
-#python normalize.py $XZ_OUTPUT $XZ_OUTPUT.norm
+echo "Normalizing Output Files ..."
+python normalize.py $BC_OUTPUT $BC_OUTPUT.norm
+python normalize.py $BS_OUTPUT $BS_OUTPUT.norm
+python normalize.py $GZ1_OUTPUT $GZ1_OUTPUT.norm
+python normalize.py $GZ6_OUTPUT $GZ6_OUTPUT.norm
+python normalize.py $LZ4_OUTPUT $LZ4_OUTPUT.norm
+python normalize.py $XZ_OUTPUT $XZ_OUTPUT.norm
+python normalize.py $AVG_MEAN_OUTPUT_RAW $AVG_MEAN_OUTPUT_RAW.norm
+python normalize.py $SHANNON_OUTPUT_RAW $SHANNON_OUTPUT_RAW.norm
+python normalize.py $HEURISTIC_OUTPUT_RAW $HEURISTIC_OUTPUT_RAW.norm
+

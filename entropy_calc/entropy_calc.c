@@ -200,23 +200,23 @@ int main(int argc, char* argv[])
               char *advice_str;
 			switch (advice) {
 			case COMPRESS_NONE:
-				advice_str = "COMPRESS_NONE";
+				advice_str = "1";
 				printf("Not Compress\n");
 				break;;
 			case COMPRESS_COST_UNKNOWN:
-				advice_str = "COST_UNKNOWN";
+				advice_str = "0";
 				printf("Unknown\n");
 				break;;
 			case COMPRESS_COST_EASY:
-				advice_str = "COST_EASY";
+				advice_str = "0.25";
 				printf("Compress cost: EASY\n");
 				break;;
 			case COMPRESS_COST_MEDIUM:
-				advice_str = "COST_MEDIUM";
+				advice_str = "0.5";
 				printf("Compress cost: MEDIUM\n");
 				break;;
 			case COMPRESS_COST_HARD:
-				advice_str = "COST_HARD";
+				advice_str = "0.75";
 				printf("Compress cost: HARD\n");
 				break;;
 			}
